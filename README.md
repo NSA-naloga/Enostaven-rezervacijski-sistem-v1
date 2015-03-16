@@ -12,9 +12,9 @@ Navodila
 - Nalozi Composer
 - Premakni repo v htdocs
 - Desni klik v mapi - use composer here
-- ```sh
+```sh
 $ php composer install
 ```
-- ```sh
+```sh
 $ php app/console server:run -v
 ```
