@@ -1,0 +1,39 @@
+<?php
+
+namespace NSA\Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profesor
+ *
+ * @ORM\Table(name="Profesor", uniqueConstraints={@ORM\UniqueConstraint(name="Profesor_ID", columns={"Profesor_ID"})})
+ * @ORM\Entity
+ */
+class Profesor
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Profesor_ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $profesorId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Profesor_Ime", type="string", length=50, nullable=false)
+     */
+    private $profesorIme;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Profesor_Priimek", type="string", length=50, nullable=false)
+     */
+    private $profesorPriimek;
+
+
+}

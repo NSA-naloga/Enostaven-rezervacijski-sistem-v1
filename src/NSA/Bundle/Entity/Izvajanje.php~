@@ -1,0 +1,41 @@
+<?php
+
+namespace NSA\Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Izvajanje
+ *
+ * @ORM\Table(name="Izvajanje", indexes={@ORM\Index(name="Naloga_ID", columns={"Naloga_ID"})})
+ * @ORM\Entity
+ */
+class Izvajanje
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Profesor_ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $profesorId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Naloga_ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="NONE")
+     */
+    private $nalogaId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Izvajanje_ID", type="integer", nullable=false)
+     */
+    private $izvajanjeId;
+
+
+}

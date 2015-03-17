@@ -1,0 +1,76 @@
+NSA\Bundle\Entity\Naloga:
+    type: entity
+    table: Naloga
+    indexes:
+        Profesor_ID:
+            columns:
+                - Profesor_ID
+    uniqueConstraints:
+        Naloga_ID:
+            columns:
+                - Naloga_ID
+    id:
+        nalogaId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: Naloga_ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        naslov:
+            type: string
+            nullable: false
+            length: 50
+            fixed: true
+            comment: ''
+            column: Naslov
+        opis:
+            type: string
+            nullable: false
+            length: 250
+            fixed: true
+            comment: ''
+            column: Opis
+        kljucneBesede:
+            type: string
+            nullable: true
+            length: 150
+            fixed: true
+            comment: ''
+            column: Kljucne_besede
+        datumKreiranja:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: Datum_kreiranja
+        datumObjave:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: Datum_objave
+        zacetniDatum:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: Zacetni_datum
+        datumOddaje:
+            type: datetime
+            nullable: false
+            comment: ''
+            column: Datum_oddaje
+        stKandidatov:
+            type: smallint
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: St_kandidatov
+        profesorId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: Profesor_ID
+    lifecycleCallbacks: {  }

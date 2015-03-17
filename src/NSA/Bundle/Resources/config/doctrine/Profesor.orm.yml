@@ -1,0 +1,33 @@
+NSA\Bundle\Entity\Profesor:
+    type: entity
+    table: Profesor
+    uniqueConstraints:
+        Profesor_ID:
+            columns:
+                - Profesor_ID
+    id:
+        profesorId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: Profesor_ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        profesorIme:
+            type: string
+            nullable: false
+            length: 50
+            fixed: true
+            comment: ''
+            column: Profesor_Ime
+        profesorPriimek:
+            type: string
+            nullable: false
+            length: 50
+            fixed: true
+            comment: ''
+            column: Profesor_Priimek
+    lifecycleCallbacks: {  }
