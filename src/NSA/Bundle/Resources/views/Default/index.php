@@ -1,4 +1,3 @@
-Hello {{ name }}!
 <!DOCTYPE html>
 <html>
 <head>
