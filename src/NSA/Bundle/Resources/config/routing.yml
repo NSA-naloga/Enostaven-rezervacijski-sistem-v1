@@ -1,0 +1,7 @@
+nsa_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: NSABundle:Default:index }
+
+nsa_test:
+    path:    /testing_Bootstrap
+    defaults: { _controller: NSABundle:Default:testing }

@@ -1,0 +1,88 @@
+<?php
+
+namespace NSA\Bundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Naloga
+ *
+ * @ORM\Table(name="Naloga", uniqueConstraints={@ORM\UniqueConstraint(name="Naloga_ID", columns={"Naloga_ID"})}, indexes={@ORM\Index(name="Profesor_ID", columns={"Profesor_ID"})})
+ * @ORM\Entity
+ */
+class Naloga
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Naloga_ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $nalogaId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Naslov", type="string", length=50, nullable=false)
+     */
+    private $naslov;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Opis", type="string", length=250, nullable=false)
+     */
+    private $opis;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Kljucne_besede", type="string", length=150, nullable=true)
+     */
+    private $kljucneBesede;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Datum_kreiranja", type="datetime", nullable=false)
+     */
+    private $datumKreiranja;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Datum_objave", type="datetime", nullable=false)
+     */
+    private $datumObjave;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Zacetni_datum", type="datetime", nullable=false)
+     */
+    private $zacetniDatum;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="Datum_oddaje", type="datetime", nullable=false)
+     */
+    private $datumOddaje;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="St_kandidatov", type="smallint", nullable=false)
+     */
+    private $stKandidatov;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Profesor_ID", type="integer", nullable=false)
+     */
+    private $profesorId;
+
+
+}

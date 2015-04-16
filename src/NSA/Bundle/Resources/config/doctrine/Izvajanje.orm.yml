@@ -1,0 +1,30 @@
+NSA\Bundle\Entity\Izvajanje:
+    type: entity
+    table: Izvajanje
+    indexes:
+        Naloga_ID:
+            columns:
+                - Naloga_ID
+    id:
+        profesorId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: Profesor_ID
+        nalogaId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: Naloga_ID
+    fields:
+        izvajanjeId:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: Izvajanje_ID
+    lifecycleCallbacks: {  }
