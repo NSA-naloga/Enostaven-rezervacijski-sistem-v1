@@ -18,3 +18,5 @@ $ php composer install
 ```sh
 $ php app/console server:run -v
 ```
+- CRUD-a se nahajata na "/profesor" in "/naloga"
+- Baza s sample podatki je dumpana v file "bckp2.sql"
