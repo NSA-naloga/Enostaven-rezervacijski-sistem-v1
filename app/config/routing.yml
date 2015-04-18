@@ -1,4 +1,4 @@
 nsa:
-    resource: "@NSABundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@NSABundle/Controller"
+    type: annotation
 

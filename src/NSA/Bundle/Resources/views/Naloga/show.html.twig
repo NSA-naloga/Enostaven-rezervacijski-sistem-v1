@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Naloga</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Naslov</th>
+                <td>{{ entity.naslov }}</td>
+            </tr>
+            <tr>
+                <th>Opis</th>
+                <td>{{ entity.opis }}</td>
+            </tr>
+            <tr>
+                <th>Kljucnebesede</th>
+                <td>{{ entity.kljucneBesede }}</td>
+            </tr>
+            <tr>
+                <th>Datumkreiranja</th>
+                <td>{{ entity.datumKreiranja|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datumobjave</th>
+                <td>{{ entity.datumObjave|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Zacetnidatum</th>
+                <td>{{ entity.zacetniDatum|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Datumoddaje</th>
+                <td>{{ entity.datumOddaje|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Stevilokandidatov</th>
+                <td>{{ entity.steviloKandidatov }}</td>
+            </tr>
+            <tr>
+                <th>Profesor</th>
+                <td>{{ entity.profesor }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('naloga') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('naloga_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

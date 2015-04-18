@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Profesor
  *
- * @ORM\Table(name="Profesor", uniqueConstraints={@ORM\UniqueConstraint(name="Profesor_ID", columns={"Profesor_ID"})})
+ * @ORM\Table()
  * @ORM\Entity
  */
 class Profesor
@@ -15,81 +15,80 @@ class Profesor
     /**
      * @var integer
      *
-     * @ORM\Column(name="Profesor_ID", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $profesorId;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Profesor_Ime", type="string", length=50, nullable=false)
+     * @ORM\Column(name="Ime", type="string", length=255)
      */
-    private $profesorIme;
+    private $ime;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Profesor_Priimek", type="string", length=50, nullable=false)
+     * @ORM\Column(name="Priimek", type="string", length=255)
      */
-    private $profesorPriimek;
-
+    private $priimek;
 
 
     /**
-     * Get profesorId
+     * Get id
      *
      * @return integer 
      */
-    public function getProfesorId()
+    public function getId()
     {
-        return $this->profesorId;
+        return $this->id;
     }
 
     /**
-     * Set profesorIme
+     * Set ime
      *
-     * @param string $profesorIme
+     * @param string $ime
      * @return Profesor
      */
-    public function setProfesorIme($profesorIme)
+    public function setIme($ime)
     {
-        $this->profesorIme = $profesorIme;
+        $this->ime = $ime;
 
         return $this;
     }
 
     /**
-     * Get profesorIme
+     * Get ime
      *
      * @return string 
      */
-    public function getProfesorIme()
+    public function getIme()
     {
-        return $this->profesorIme;
+        return $this->ime;
     }
 
     /**
-     * Set profesorPriimek
+     * Set priimek
      *
-     * @param string $profesorPriimek
+     * @param string $priimek
      * @return Profesor
      */
-    public function setProfesorPriimek($profesorPriimek)
+    public function setPriimek($priimek)
     {
-        $this->profesorPriimek = $profesorPriimek;
+        $this->priimek = $priimek;
 
         return $this;
     }
 
     /**
-     * Get profesorPriimek
+     * Get priimek
      *
      * @return string 
      */
-    public function getProfesorPriimek()
+    public function getPriimek()
     {
-        return $this->profesorPriimek;
+        return $this->priimek;
     }
 }

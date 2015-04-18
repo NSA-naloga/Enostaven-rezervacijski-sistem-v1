@@ -40,7 +40,7 @@
         "oyejorge/less.php": "~1.5",
         "braincrafted/bootstrap-bundle": "~2.0",
         "twbs/bootstrap": "3.0.*",
-        "jquery/jquery": "1.11.*"
+        "components/jquery": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

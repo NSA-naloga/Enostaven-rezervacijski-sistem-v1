@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Naloga
  *
- * @ORM\Table(name="Naloga", uniqueConstraints={@ORM\UniqueConstraint(name="Naloga_ID", columns={"Naloga_ID"})}, indexes={@ORM\Index(name="Profesor_ID", columns={"Profesor_ID"})})
+ * @ORM\Table()
  * @ORM\Entity
  */
 class Naloga
@@ -15,85 +15,84 @@ class Naloga
     /**
      * @var integer
      *
-     * @ORM\Column(name="Naloga_ID", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $nalogaId;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Naslov", type="string", length=50, nullable=false)
+     * @ORM\Column(name="Naslov", type="string", length=255)
      */
     private $naslov;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Opis", type="string", length=250, nullable=false)
+     * @ORM\Column(name="Opis", type="string", length=255)
      */
     private $opis;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="Kljucne_besede", type="string", length=150, nullable=true)
+     * @ORM\Column(name="Kljucne_besede", type="string", length=255)
      */
     private $kljucneBesede;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Datum_kreiranja", type="datetime", nullable=false)
+     * @ORM\Column(name="Datum_kreiranja", type="datetime")
      */
     private $datumKreiranja;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Datum_objave", type="datetime", nullable=false)
+     * @ORM\Column(name="Datum_objave", type="datetime")
      */
     private $datumObjave;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Zacetni_datum", type="datetime", nullable=false)
+     * @ORM\Column(name="Zacetni_datum", type="datetime")
      */
     private $zacetniDatum;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Datum_oddaje", type="datetime", nullable=false)
+     * @ORM\Column(name="Datum_oddaje", type="datetime")
      */
     private $datumOddaje;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="St_kandidatov", type="smallint", nullable=false)
+     * @ORM\Column(name="Stevilo_kandidatov", type="integer")
      */
-    private $stKandidatov;
+    private $steviloKandidatov;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="Profesor_ID", type="integer", nullable=false)
+     * @ORM\Column(name="Profesor", type="integer")
      */
-    private $profesorId;
-
+    private $profesor;
 
 
     /**
-     * Get nalogaId
+     * Get id
      *
      * @return integer 
      */
-    public function getNalogaId()
+    public function getId()
     {
-        return $this->nalogaId;
+        return $this->id;
     }
 
     /**
@@ -258,48 +257,48 @@ class Naloga
     }
 
     /**
-     * Set stKandidatov
+     * Set steviloKandidatov
      *
-     * @param integer $stKandidatov
+     * @param integer $steviloKandidatov
      * @return Naloga
      */
-    public function setStKandidatov($stKandidatov)
+    public function setSteviloKandidatov($steviloKandidatov)
     {
-        $this->stKandidatov = $stKandidatov;
+        $this->steviloKandidatov = $steviloKandidatov;
 
         return $this;
     }
 
     /**
-     * Get stKandidatov
+     * Get steviloKandidatov
      *
      * @return integer 
      */
-    public function getStKandidatov()
+    public function getSteviloKandidatov()
     {
-        return $this->stKandidatov;
+        return $this->steviloKandidatov;
     }
 
     /**
-     * Set profesorId
+     * Set profesor
      *
-     * @param integer $profesorId
+     * @param integer $profesor
      * @return Naloga
      */
-    public function setProfesorId($profesorId)
+    public function setProfesor($profesor)
     {
-        $this->profesorId = $profesorId;
+        $this->profesor = $profesor;
 
         return $this;
     }
 
     /**
-     * Get profesorId
+     * Get profesor
      *
      * @return integer 
      */
-    public function getProfesorId()
+    public function getProfesor()
     {
-        return $this->profesorId;
+        return $this->profesor;
     }
 }
