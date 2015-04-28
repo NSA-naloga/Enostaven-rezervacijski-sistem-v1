@@ -1,4 +1,5 @@
 nsa:
     resource: "@NSABundle/Controller"
+    prefix: /
     type: annotation
 
