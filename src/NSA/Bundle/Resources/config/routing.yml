@@ -14,6 +14,7 @@ nsa_vse_naloge:
     path:    /naloge
     defaults: { _controller: NSABundle:Default:vseNaloge }
 
+<<<<<<< HEAD
 nsa_success:
     path:    /success
     defaults: { _controller: NSABundle:Default:success }
@@ -21,3 +22,12 @@ nsa_success:
 nsa_dodaj_nalogo:
     path:    /dodaj_nalogo
     defaults: { _controller: NSABundle:Default:dodajNalogo }
+=======
+nsa_pokazi_profesorja:
+    path:    /prof/{id}
+    defaults: { _controller: NSABundle:Default:pokaziProfesorja }
+
+nsa_vsi_profesorji:
+    path:    /prof
+    defaults: { _controller: NSABundle:Default:vsiProfesorji }
+>>>>>>> 40d30376b0b18d2cd6d7c7bbb531021935a45975
