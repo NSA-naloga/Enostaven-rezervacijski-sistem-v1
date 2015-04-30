@@ -59,6 +59,26 @@ class DefaultController extends Controller
     return $this->render('NSABundle:Default:pokazi_profesorja.html.twig', $build);
    } 
 
+   public function dodajProfesorjaAction(Request $request) {
+    $profesor = new profesor();
+
+    $form = $this->createFormBuilder($profesor)
+      ->add('ime', 'text')
+      ->add('priimek', 'text')
+      ->add('save', 'submit')
+      ->getForm();
+
+      $form->handleRequest($request);
+      if($form->isValid()) {
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($profesor);
+        $em->flush();
+        return $this->redirect($this->generateUrl('nsa_success'));
+      }
+
+      return $this->render('NSABundle:Default:dodaj_profesorja.html.twig', array('form' => $form->createView()));
+   }
+
    public function dodajNalogoAction(Request $request){
     $Naloga=new Naloga();
 

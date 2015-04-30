@@ -30,3 +30,6 @@ nsa_vsi_profesorji:
     path:    /prof
     defaults: { _controller: NSABundle:Default:vsiProfesorji }
 
+nsa_dodaj_profesorja:
+    path:    /dodaj_profesorja
+    defaults: { _controller: NSABundle:Default:dodajProfesorja }
