@@ -13,3 +13,11 @@ nsa_pokazi_nalogo:
 nsa_vse_naloge:
     path:    /naloge
     defaults: { _controller: NSABundle:Default:vseNaloge }
+
+nsa_pokazi_profesorja:
+    path:    /prof/{id}
+    defaults: { _controller: NSABundle:Default:pokaziProfesorja }
+
+nsa_vsi_profesorji:
+    path:    /prof
+    defaults: { _controller: NSABundle:Default:vsiProfesorji }

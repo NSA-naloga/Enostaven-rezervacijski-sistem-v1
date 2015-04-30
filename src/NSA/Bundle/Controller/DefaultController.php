@@ -39,6 +39,26 @@ class DefaultController extends Controller
     
       $build['naloga'] = $naloga;
       return $this->render('NSABundle:Default:vseNaloge.html.twig', $build);
+   }
+
+   public function pokaziProfesorjaAction($id) {
+    $profesor = $this->getDoctrine()->getRepository('NSABundle:Profesor')->find($id);
+    if (!$profesor) {
+      throw $this->createNotFoundException('Profesor z ID-jem ' . $id . 'ne obstaja');
+    }
+
+    $build['profesor_item'] = $profesor;
+    return $this->render('NSABundle:Default:pokazi_profesorja.html.twig', $build);
    } 
+
+   public function vsiProfesorjiAction() {
+    $profesor = $this->getDoctrine()->getRepository('NSABundle:Profesor')->findAll();
+    if (!$profesor) {
+      throw $this->createNotFoundException('Ni najdenih profesorjev');
+    }
+
+    $build['profesor'] = $profesor;
+    return $this->render('NSABundle:Default:vsiProfesorji.html.twig', $build);
+   }
 
 }
