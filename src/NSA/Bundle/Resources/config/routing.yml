@@ -1,6 +1,6 @@
 nsa_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NSABundle:Default:index }
+    path:     /
+    defaults: { _controller: NSABundle:Default:prva }
 
 nsa_test:
     path:    /testing_Bootstrap
@@ -13,3 +13,11 @@ nsa_pokazi_nalogo:
 nsa_vse_naloge:
     path:    /naloge
     defaults: { _controller: NSABundle:Default:vseNaloge }
+
+nsa_success:
+    path:    /success
+    defaults: { _controller: NSABundle:Default:success }
+
+nsa_dodaj_nalogo:
+    path:    /dodaj_nalogo
+    defaults: { _controller: NSABundle:Default:dodajNalogo }
