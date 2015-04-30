@@ -59,7 +59,6 @@ class DefaultController extends Controller
     return $this->render('NSABundle:Default:pokazi_profesorja.html.twig', $build);
    } 
 
-<<<<<<< HEAD
    public function dodajNalogoAction(Request $request){
     $Naloga=new Naloga();
 
@@ -87,7 +86,7 @@ class DefaultController extends Controller
  
 }
 
-=======
+
    public function vsiProfesorjiAction() {
     $profesor = $this->getDoctrine()->getRepository('NSABundle:Profesor')->findAll();
     if (!$profesor) {
@@ -97,6 +96,5 @@ class DefaultController extends Controller
     $build['profesor'] = $profesor;
     return $this->render('NSABundle:Default:vsiProfesorji.html.twig', $build);
    }
->>>>>>> 40d30376b0b18d2cd6d7c7bbb531021935a45975
 
 }
