@@ -8,5 +8,5 @@
 /bin/
 /composer.phar
 /vendor/
-!/vendor/friendsofsymfony
+!vendor/friendsofsymfony
 /web/bundles/
