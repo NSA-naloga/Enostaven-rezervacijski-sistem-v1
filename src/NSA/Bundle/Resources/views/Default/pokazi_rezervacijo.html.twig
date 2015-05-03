@@ -7,7 +7,7 @@
 				top: 8px;
 			}
 	</style>
-			<title>Rezervacija naloge {{ rezervacija_item.id_naloge }} </title>
+			<title>Rezervacija naloge</title>
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <!-- Bootstrap -->
 		    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
@@ -99,13 +99,10 @@
 			             	 <td>Status: </td>
 			             	 <td>{{ rezervacija_item.status }}</td>
 			             	 </tr>
-			             	 <tr>
-			             	 <td>ID naloge:	</td>
-			             	 <td>{{ rezervacija_item.id_naloge }}</td>
-			             	 </tr>
+			             	 
 			             	 <tr>
 			             	 <td>Datum oddaje:	</td>
-			             	 <td>{{ rezervacija_item.datum_oddaje|date('Y-m-d')  }}</td>
+			             	 <td>{{ rezervacija_item.datumoddaje|date('Y-m-d')  }}</td>
 			             	 </tr>
 
 	 					</table> 

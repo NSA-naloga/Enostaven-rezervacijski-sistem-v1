@@ -78,11 +78,9 @@
             <h2>Naloge</h2>
             <div class="row">
                     <div class="panel panel-default">
-                    {% for new in naloga %}
 	                      	{% for new in rezervacija %}
 								<div class="panel-body"><h3><a href="/rezervacije/{{ new.id }}">{{ new.id }}. {{ new.priimek }} {{ new.ime }}</a></h3></div> 
-							{% endfor %}
-	             	{% endfor %}  
+							{% endfor %} 
                     </div>
   
 
