@@ -9,8 +9,6 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
-        example:
-            entity: {class NSA\Bundle\Entity\User, property: username}
 
 
     firewalls:
@@ -22,8 +20,8 @@ security:
                 login_path:  /login
                 use_forward:  false
                 check_path:  /login_check
-                always_use_default_target_path:  true
-                default_target_path: /testing_Bootstrap
+                #lways_use_default_target_path:  true
+                #default_target_path: /testing_Bootstrap
                 #success_handler: jan_projekt.component.authentication.handler.login_success_handler
                 use_referer: true
             logout:
@@ -34,15 +32,12 @@ security:
                 #success_handler: jan_projekt.component.authentication.handler.logout_success_handler
             anonymous:    true
 
-   # access_control:
-    #    - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-     #   - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-      #  - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-       # - { path: ^/admin/, role: ROLE_ADMIN }
-        #- { path: ^/delovno_mesto/dodaj_delovno_mesto, role: ROLE_USER }
-        #- { path: ^/seznam_prijav, role: ROLE_USER }
-        #- { path: ^/prijava/id, role: ROLE_USER }
-        #- { path: ^/prijava, role: ROLE_USER }
-        #- { path: ^/delovnomesto, role: ROLE_ADMIN }
-        #- { path: ^/zaposlovalec, role: ROLE_ADMIN }
-        #- { path: ^/prijave, role: ROLE_ADMIN }
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/dodaj_nalogo, role: ROLE_ADMIN }
+        - { path: ^/rezervacije, role: ROLE_ADMIN }
+        - { path: ^/prosnje, role: ROLE_ADMIN }
+        - { path: ^/dodaj_rezervacijo, role: ROLE_ADMIN }
+        - { path: ^/naloge, role: ROLE_USER }
