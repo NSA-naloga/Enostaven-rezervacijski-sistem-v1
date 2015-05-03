@@ -33,3 +33,15 @@ nsa_vsi_profesorji:
 nsa_dodaj_profesorja:
     path:    /dodaj_profesorja
     defaults: { _controller: NSABundle:Default:dodajProfesorja }
+
+nsa_pokazi_rezervacijo:
+    path:    /rezervacije/{id}
+    defaults: { _controller: NSABundle:Default:pokaziRezervacijo }
+
+nsa_vse_rezervacije:
+    path:    /rezervacije
+    defaults: { _controller: NSABundle:Default:vseRezervacije }
+
+nsa_dodaj_rezervacijo:
+    path:    /dodaj_rezervacijo
+    defaults: { _controller: NSABundle:Default:dodajrezervacijo }
