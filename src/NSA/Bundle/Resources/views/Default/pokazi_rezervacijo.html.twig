@@ -1,7 +1,117 @@
-{{ rezervacija_item.username }}
-{{ rezervacija_item.ime }}
-{{ rezervacija_item.priimek }}
-{{ rezervacija_item.razred }}
-{{ rezervacija_item.status }}
-{{ rezervacija_item.id_naloge }}
-{{ rezervacija_item.datum_oddaje }}
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+			.vrh{
+				position: absolute;
+				top: 8px;
+			}
+	</style>
+			<title>Rezervacija naloge {{ rezervacija_item.id_naloge }} </title>
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <!-- Bootstrap -->
+		    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
+
+		    <!-- HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries -->
+		    {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+	</head>
+	<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Brand</a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/naloge">Naloge</a></li>
+            <li><a href="/prof">Profesorji</a></li>
+            <li class="vrh">
+	            <div class="btn-group">
+				  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				    Dodaj
+				    <span class="caret"></span>
+				  </a>
+				  <ul class="dropdown-menu">
+				    <li><a href="/dodaj_nalogo">Naloga</a></li>
+				    <li><a href="/dodaj_prof">Profesor</a></li>
+				    <li class="divider"></li>
+				  </ul>
+				</div>
+			</li>
+			<li class="vrh">
+	            <div class="btn-group">
+				  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				    Rezervacija
+				    <span class="caret"></span>
+				  </a>
+				  <ul class="dropdown-menu">
+				    <li><a href="/dodaj_rezervacijo">Dodaj</a></li>
+				    <li><a href="/rezervacije">Vse rezervacije</a></li>
+				    <li class="divider"></li>
+				  </ul>
+				</div>
+			</li>
+        </ul>
+    </div>
+    <!--/.nav-collapse -->
+</div>
+<!--/.navbar -->
+	<div class="container">
+            <h2>Naloge</h2>
+            <div class="row">
+                    <div class="panel panel-default">
+                  <table class="table table-hover">
+			             	 <tr> 
+			             	 <td>Uprabniško ime: </td>
+			             	 <td>{{ rezervacija_item.username }}</td>
+			             	 </tr>
+			             	 <tr>
+			             	 <td>Ime: </td>
+			             	 <td>{{ rezervacija_item.ime }}}</td>
+			             	 </tr>
+			             	 <tr>
+			             	 <td>Priimek: </td>
+			             	 <td>{{ rezervacija_item.priimek }}</td>
+			             	 </tr>
+			             	 <tr>
+			             	 <td>Razred:	</td>
+			             	 <td>{{ rezervacija_item.razred }}</td>
+			             	 </tr>
+			             	 <tr>
+			             	 <td>Status: </td>
+			             	 <td>{{ rezervacija_item.status }}</td>
+			             	 </tr>
+			             	 <tr>
+			             	 <td>ID naloge:	</td>
+			             	 <td>{{ rezervacija_item.id_naloge }}</td>
+			             	 </tr>
+			             	 <tr>
+			             	 <td>Datum oddaje:	</td>
+			             	 <td>{{ rezervacija_item.datum_oddaje|date('Y-m-d')  }}</td>
+			             	 </tr>
+
+	 					</table> 
+                    </div>
+  
+
+                </div>
+    </div>          
+            
+        
+    
+    <!--/row-offcanvas -->
+
+		
+			 <!-- jQuery (necessary for Bootstraps JavaScript plugins) -->
+			 <script src="{{ asset('js/jquery.js') }}"></script>
+			 <!-- Include all JavaScripts, compiled by Assetic -->
+			 <script src="{{ asset('js/bootstrap.js') }}"></script>
+		 </div>
+	</body>
+</html>
+
+
