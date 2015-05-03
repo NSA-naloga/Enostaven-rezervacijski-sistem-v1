@@ -7,7 +7,7 @@
 				top: 8px;
 			}
 	</style>
-			<title>Dodaj rezervacijo</title>
+			<title>Dodaj prošnjo</title>
 		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		    <!-- Bootstrap -->
 		    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" media="screen">
@@ -23,38 +23,62 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Brand</a>
+  <a class="navbar-brand" href="/">Domov</a>
     </div>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/naloge">Naloge</a></li>
-            <li><a href="/prof">Profesorji</a></li>
             <li class="vrh">
-	            <div class="btn-group">
-				  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-				    Dodaj
-				    <span class="caret"></span>
-				  </a>
-				  <ul class="dropdown-menu">
-				    <li><a href="/dodaj_nalogo">Naloga</a></li>
-				    <li><a href="/dodaj_prof">Profesor</a></li>
-				    <li class="divider"></li>
-				  </ul>
-				</div>
-			</li>
-			<li class="vrh">
-	            <div class="btn-group">
-				  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-				    Rezervacija
-				    <span class="caret"></span>
-				  </a>
-				  <ul class="dropdown-menu">
-				    <li><a href="/dodaj_rezervacijo">Dodaj</a></li>
-				    <li><a href="/rezervacije">Vse rezervacije</a></li>
-				    <li class="divider"></li>
-				  </ul>
-				</div>
-			</li>
+                <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Naloge
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/dodaj_nalogo">Dodaj</a></li>
+                    <li><a href="/naloge">Vse naloge</a></li>
+                    <li class="divider"></li>
+                  </ul>
+                </div>
+            </li>
+          <li class="vrh">
+                <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Rezervacija
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/rezervacije">Vse rezervacije</a></li>
+                    <li class="divider"></li>
+                  </ul>
+                </div>
+            </li>
+                <li class="vrh">
+                <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Uporabnik
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/prijava">Prijava</a></li>
+                    <li><a href="/register">Registracija</a></li>
+                    <li><a href="/profile">Profil</a></li>
+                    <li><a href="/logout">Odjava</a></li>
+                    <li class="divider"></li>
+                  </ul>
+                </div>
+            </li>
+            <li class="vrh">
+                <div class="btn-group">
+                  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                    Prošnje
+                    <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/prosnje">Vse prošnje</a></li>
+                    <li><a href="/dodaj_prosnjo">Dodaj</a></li>
+                  </ul>
+                </div>
+            </li>
         </ul>
     </div>
     <!--/.nav-collapse -->
