@@ -45,3 +45,15 @@ nsa_vse_rezervacije:
 nsa_dodaj_rezervacijo:
     path:    /dodaj_rezervacijo
     defaults: { _controller: NSABundle:Default:dodajrezervacijo }
+
+nsa_pokazi_prosnjo:
+    path:    /prosnje/{id}
+    defaults: { _controller: NSABundle:Default:pokaziProsnjo }
+
+nsa_vse_prosnje:
+    path:    /prosnje
+    defaults: { _controller: NSABundle:Default:vseProsnje }
+
+nsa_dodaj_prosnjo:
+    path:    /dodaj_prosnjo
+    defaults: { _controller: NSABundle:Default:dodajProsnjo }

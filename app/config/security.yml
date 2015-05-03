@@ -9,6 +9,9 @@ security:
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username
+        example:
+            entity: {class NSA\Bundle\Entity\User, property: username}
+
 
     firewalls:
         main:

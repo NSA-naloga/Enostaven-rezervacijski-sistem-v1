@@ -45,14 +45,14 @@ class Rezervacija
     /**
      * @var string
      *
-     * @ORM\Column(name="razred", type="text")
+     * @ORM\Column(name="razred", type="text", nullable=true)
      */
     private $razred;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="text")
+     * @ORM\Column(name="status", type="text", nullable=true)
      */
     private $status;
 

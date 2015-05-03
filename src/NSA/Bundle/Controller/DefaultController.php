@@ -6,7 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use NSA\Bundle\Entity\Naloga;
 use NSA\Bundle\Entity\Profesor;
-use NSA\Bundle\Entity\Rezervacija;
+use NSA\Bundle\Entity\Prosnja;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Model\User;
 
 class DefaultController extends Controller
 {
@@ -145,16 +149,23 @@ class DefaultController extends Controller
     $rezervacija = new rezervacija();
 
     $form = $this->createFormBuilder($rezervacija)
-      ->add('username', 'text')
-      ->add('ime', 'text')
-      ->add('priimek', 'text')
-      ->add('razred', 'text')
-      
-      ->add('status', 'choice', array('choices' => array('dijak' => 'Dijak', 'profesor' => 'Profesor')))
-      ->add('id_naloge', 'integer')
-      ->add('datum_oddaje', 'datetime')
-      ->add('save', 'submit')
+     // ->add('username', 'text')
+     // ->add('ime', 'text')
+     //->add('priimek', 'text')
+     // ->add('razred', 'choice', array('choices' => array('e4a' => 'E4A', 'E4B' => 'E4B', 'E4C' => 'E4C', 'G4A' => 'G4A', 'G4B' => 'G4B', 'G4C' => 'G4C', 'R4A' => 'R4A', 'R4B' => 'R4B', 'R4C' => 'R4C')))
+     // ->add('status', 'choice', array('choices' => array('dijak' => 'Dijak', 'profesor' => 'Profesor')))
+     // ->add('id_naloge', 'integer')
+     // ->add('datum_oddaje', 'datetime')
+      ->add('Ponovno kliknite za oddajo rezervacije!', 'submit')
       ->getForm();
+      $username=$this->get('security.token_storage')->getToken()->getUser()->getUserName();
+      $rezervacija->setusername($username);
+      $ime=$this->get('security.token_storage')->getToken()->getUser()->getIme();
+      $rezervacija->setime($ime);
+      $priimek=$this->get('security.token_storage')->getToken()->getUser()->getPriimek();
+      $rezervacija->setpriimek($priimek);
+      $rezervacija->setdatumoddaje(new \DateTime());
+
 
       $form->handleRequest($request);
       if($form->isValid()) {
@@ -167,4 +178,49 @@ class DefaultController extends Controller
       return $this->render('NSABundle:Default:dodaj_rezervacijo.html.twig', array('form' => $form->createView()));
    }
 
+   public function pokaziProsnjoAction($id) {
+      $prosnja = $this->getDoctrine()
+            ->getRepository('NSABundle:Prosnja')
+            ->find($id);
+      if (!$prosnja) {
+        throw $this->createNotFoundException('Prosnja z ID-jem ' . $id.' ne obstaja');
+      }
+    
+      $build['prosnja_item'] = $prosnja;
+      return $this->render('NSABundle:Default:pokazi_prosnjo.html.twig', $build);
+    }
+
+   public function vseProsnjeAction(){
+   		$prosnja = $this->getDoctrine()
+            ->getRepository('NSABundle:Prosnja')
+            ->findAll();
+      if (!$prosnja) {
+        throw $this->createNotFoundException('Ni najdenih prosenj.');
+      }
+    
+      $build['prosnja'] = $prosnja;
+      return $this->render('NSABundle:Default:vseProsnje.html.twig', $build);
+   }
+
+    public function dodajProsnjoAction(Request $request){
+    $Prosnja=new Prosnja();
+
+    $form=$this->createFormBuilder($Prosnja)
+        ->add('zeljeni_status','choice', array('choices' => array('dijak' => 'Dijak', 'profesor' => 'Profesor', 'Administrator' => 'Administrator')))
+    	->add('komentar','textarea')
+    	->add('save','submit')
+        ->getForm();
+        $username=$this->get('security.token_storage')->getToken()->getUser()->getUserName();
+      	$Prosnja->setusername($username);
+    $form->handleRequest($request);
+    if($form->isValid()){
+      $em=$this->getDoctrine()->getManager();
+      $em->persist($Prosnja);
+      $em->flush();
+      return $this->redirect($this->generateUrl('nsa_success'));
+    }
+    //$build['form']= $form->createView();
+     return $this->render('NSABundle:Default:dodaj_prosnjo.html.twig',array('form' => $form->createView()));
+ 
+  }
 }
