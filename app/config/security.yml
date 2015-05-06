@@ -22,14 +22,14 @@ security:
                 check_path:  /login_check
                 #lways_use_default_target_path:  true
                 #default_target_path: /testing_Bootstrap
-                #success_handler: jan_projekt.component.authentication.handler.login_success_handler
+                success_handler: nsa_projekt.component.authentication.handler.login_success_handler
                 use_referer: true
             logout:
                 path: /logout
                 target: /
 #                always_use_default_target_path:  true
 #                default_target_path: /prva
-                #success_handler: jan_projekt.component.authentication.handler.logout_success_handler
+                #success_handler: nsa_projekt.component.authentication.handler.logout_success_handler
             anonymous:    true
 
     access_control:

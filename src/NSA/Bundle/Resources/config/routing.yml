@@ -43,7 +43,7 @@ nsa_vse_rezervacije:
     defaults: { _controller: NSABundle:Default:vseRezervacije }
 
 nsa_dodaj_rezervacijo:
-    path:    /dodaj_rezervacijo
+    path:    pattern: /naloga/{id}/rezervacija
     defaults: { _controller: NSABundle:Default:dodajrezervacijo }
 
 nsa_pokazi_prosnjo:

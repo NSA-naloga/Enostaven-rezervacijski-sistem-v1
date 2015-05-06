@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use NSA\Bundle\Entity\Naloga;
 use NSA\Bundle\Entity\Profesor;
 use NSA\Bundle\Entity\Prosnja;
+use NSA\Bundle\Entity\Rezervacija;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
@@ -45,13 +46,13 @@ class DefaultController extends Controller
    public function vseNalogeAction(){
    		$naloga = $this->getDoctrine()
             ->getRepository('NSABundle:Naloga')
-            ->findAll();
+            ->findBy(array(),array('datumKreiranja'=>'desc'));
       if (!$naloga) {
         throw $this->createNotFoundException('Ni najdenih nalog.');
       }
     
       $build['naloga'] = $naloga;
-      return $this->render('NSABundle:Default:vseNaloge.html.twig', $build);
+      return $this->render('NSABundle:Default:vseNaloge.html.twig',$build);
    }
 
     public function dodajNalogoAction(Request $request){
@@ -68,7 +69,8 @@ class DefaultController extends Controller
         ->getForm();
     $Naloga->setdatumKreiranja(new \DateTime()); // Sam doda datum dodajanja
     $Naloga->setdatumObjave(new \DateTime()); // Sam doda datum dodajanja
-    $Naloga->setProfesor('1'); // SAMO ZA TEST
+    $username=$this->get('security.token_storage')->getToken()->getUser()->getUserName();
+    $Naloga->setprofesor($username);
     $form->handleRequest($request);
     if($form->isValid()){
       $em=$this->getDoctrine()->getManager();
@@ -136,7 +138,7 @@ class DefaultController extends Controller
    }
 
    public function vseRezervacijeAction() {
-    $rezervacija = $this->getDoctrine()->getRepository('NSABundle:Rezervacija')->findAll();
+    $rezervacija = $this->getDoctrine()->getRepository('NSABundle:Rezervacija')->findBy(array(),array('datumOddaje'=>'desc'));
     if (!$rezervacija) {
       throw $this->createNotFoundException('Ni najdene rezervacije');
     }
@@ -145,7 +147,7 @@ class DefaultController extends Controller
     return $this->render('NSABundle:Default:vseRezervacije.html.twig', $build);
    }
 
-   public function dodajRezervacijoAction(Request $request) {
+   public function dodajRezervacijoAction(Request $request,$id=null){ // ce ne dobi parametra id, je null) {
     $rezervacija = new rezervacija();
 
     $form = $this->createFormBuilder($rezervacija)
@@ -165,7 +167,7 @@ class DefaultController extends Controller
       $priimek=$this->get('security.token_storage')->getToken()->getUser()->getPriimek();
       $rezervacija->setpriimek($priimek);
       $rezervacija->setdatumoddaje(new \DateTime());
-
+      $rezervacija->setidnaloge($id);
 
       $form->handleRequest($request);
       if($form->isValid()) {

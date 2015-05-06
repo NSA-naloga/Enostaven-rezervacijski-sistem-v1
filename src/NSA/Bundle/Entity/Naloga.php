@@ -80,7 +80,7 @@ class Naloga
     /**
      * @var integer
      *
-     * @ORM\Column(name="Profesor", type="integer")
+     * @ORM\Column(name="Profesor", type="string", length=255)
      */
     private $profesor;
 
@@ -282,7 +282,7 @@ class Naloga
     /**
      * Set profesor
      *
-     * @param integer $profesor
+     * @param string $profesor
      * @return Naloga
      */
     public function setProfesor($profesor)
@@ -295,7 +295,7 @@ class Naloga
     /**
      * Get profesor
      *
-     * @return integer 
+     * @return string
      */
     public function getProfesor()
     {

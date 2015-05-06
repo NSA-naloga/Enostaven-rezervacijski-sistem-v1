@@ -101,15 +101,10 @@
 			             	 <td>Priimek: </td>
 			             	 <td>{{ rezervacija_item.priimek }}</td>
 			             	 </tr>
-			             	 <tr>
-			             	 <td>Razred:	</td>
-			             	 <td>{{ rezervacija_item.razred }}</td>
-			             	 </tr>
-			             	 <tr>
-			             	 <td>Status: </td>
-			             	 <td>{{ rezervacija_item.status }}</td>
-			             	 </tr>
-			             	 
+                     <tr>
+                     <td>Id naloge:  </td>
+                     <td><a href="/naloge/{{ rezervacija_item.idnaloge }}">{{ rezervacija_item.idnaloge }}</td>
+                     </tr>
 			             	 <tr>
 			             	 <td>Datum oddaje:	</td>
 			             	 <td>{{ rezervacija_item.datumoddaje|date('Y-m-d')  }}</td>

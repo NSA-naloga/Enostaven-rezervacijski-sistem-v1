@@ -2,3 +2,20 @@ services:
 #    nsa.example:
 #        class: NSA\Bundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+#Servisa, ki se kliceta ob uspesnem loginu/logoutu
+parameters:
+    NSA_projekt.component.authentication.handler.login_success_handler.class: NSA\Bundle\Component\Authentication\Handler\LoginSuccessHandler
+    NSA_projekt.component.authentication.handler.logout_success_handler.class: NSA\Bundle\Component\Authentication\Handler\LogoutSuccessHandler
+    
+services:
+    NSA_projekt.component.authentication.handler.login_success_handler:
+        class:  %nsa_projekt.component.authentication.handler.login_success_handler.class%
+        arguments:  [@security.context, @router]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' } 
+    NSA_projekt.component.authentication.handler.logout_success_handler:
+        class:  %nsa_projekt.component.authentication.handler.logout_success_handler.class%
+        arguments:  [@router]
+        tags:
+            - { name: 'monolog.logger', channel: 'security' }
