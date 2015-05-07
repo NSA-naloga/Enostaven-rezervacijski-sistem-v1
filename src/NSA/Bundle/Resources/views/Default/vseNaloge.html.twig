@@ -90,12 +90,21 @@
                     <div class="panel panel-default">
                     {% for new in naloga %}
 	                      	 <div class="panel-body">
-                           
+                           <h3> <p>
+                            <a href="/naloge/{{ new.id }}"> {{ new.naslov }} </a>
                            {% if  app.user.username  == new.profesor %}
-                           <h3> <a href="/naloge/{{ new.id }}" class="list-group-item list-group-item-danger"> {{ new.id }}. {{ new.naslov }} </a></h3>
-                           {% else %}
-                            <h3><a href="/naloge/{{ new.id }}"> {{ new.id }}. {{ new.naslov }} </a></h3>
-                           {% endif %}  </div> 
+                                <h4>{{ label_primary('Vasa naloga!') }}</h4>
+                           {% endif %}
+                           {% if date().timestamp <= new.zacetniDatum|date('U') %}
+                                <h4>{{ label_danger('Naloga je potekla!') }}</h4>
+                           {% endif %}
+                           {% if (date().timestamp >= new.zacetniDatum|date('U')) and (date().timestamp <= new.datumOddaje|date('U')) %}
+                               <h4>{{ label_success('Naloga je aktivna!') }}</h4>
+                           {% endif %}
+                           {% if (date().timestamp > new.datumOddaje|date('U')) %}
+                               <h4>{{ label_info('Naloga se se ni zacela!') }}</h4> 
+                           {% endif %}
+                             <hr></div> </h3></p>
                            {% endfor %}
 	               
                     </div>
